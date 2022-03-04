@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Main from '../components/Main'
 
 const style = {
-    wrapper: 'h-screen max-h-screen h-min-screen w-screen bg-black text-white select-none flex flex-col justify-between'
+    wrapper: ' max-h-screen h-min-screen w-screen bg-black text-white select-none flex flex-col justify-between'
 }
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       <Head>
           <title>Crypto BEE</title>
           <link rel="icon" href="/favicon.ico" />
-        </Head>
+      </Head>
       <Header />
       <Main />
     </div>
