@@ -13,7 +13,6 @@ export default function Home() {
       <Head>
           <title>Crypto BEE</title>
           <link rel="icon" href="/favicon.ico" />
-          <script src="https://kit.fontawesome.com/538078a3ee.js" crossorigin="anonymous"></script>
         </Head>
       <Header />
       <Main />

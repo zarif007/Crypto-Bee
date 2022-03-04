@@ -3,12 +3,14 @@ import Image from 'next/image'
 import logo from '../assets/logo.png'
 import eth from '../assets/eth.png'
 import ethCurrency from '../assets/ethCurrency.png'
+import { FaWallet, FaHistory } from "react-icons/fa/";
+import { RiSendPlaneFill } from "react-icons/ri";
 
 const style = {
     wrapper: `p-4 w-screen flex justify-between items-center flex-wrap`,
     headerLogo: `flex w-1/4 items-center justify-start`,
     nav: `flex justify-center items-center`,
-    navItemsContainer: `flex bg-gray-900 rounded-2xl`,
+    navItemsContainer: `flex bg-gray-900 rounded-2xl mx-auto`,
     navItem: `px-4 py-2 m-1 flex items-center text-lg font-semibold text-[0.9rem] cursor-pointer rounded-2xl`,
     activeNavItem: `bg-[#20242A]`,
     buttonsContainer: `flex w-1/4 justify-end items-center`,
@@ -33,13 +35,13 @@ const Header = () => {
                 className={`${style.navItem} ${selectedNav === 'Transfer' && 
                 style.activeNavItem}`} 
                 onClick={() => setSelectedNav('Transfer')}>
-                  Transfer <i class="fas fa-envelope-open-dollar"></i>
+                  <span className='pr-1'>Transfer</span> <RiSendPlaneFill className='w-4 h-4' />
               </div>
               <div 
                 className={`${style.navItem} ${selectedNav === 'History' && 
                 style.activeNavItem}`} 
                 onClick={() => setSelectedNav('History')}>
-                  History
+                  <span className='pr-1'>History</span> <FaHistory className='w-4 h-4' />
               </div>
             </div>
 
@@ -52,9 +54,9 @@ const Header = () => {
               </div>
             </div>
 
-            <div className={`${style.button} ${style.buttonPadding}`}>
+            <div className={`${style.button} ${style.buttonPadding} w-full`}>
               <div className={`${style.buttonAccent} ${style.buttonPadding}`}>
-                <p className='hidden sm:inline'>Connect Wallet</p> <i class="fas fa-wallet"></i>
+                <p className='hidden sm:inline pr-1'>Connect Wallet</p> <FaWallet className='w-4 h-4' />
               </div>
             </div>
           </div>
