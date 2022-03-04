@@ -2,6 +2,7 @@ import React from 'react'
 import { RiSendPlaneFill } from "react-icons/ri";
 import eth from '../assets/eth.png'
 import Image from 'next/image'
+import { MdOutlineArrowCircleDown } from "react-icons/md";
 
 const Main = () => {
   
@@ -9,6 +10,8 @@ const Main = () => {
     wrapper: `w-screen flex items-center justify-center mt-32 p-1`,
     content: `bg-[#191B1F] w-[40rem] rounded-lg p-4`,
     formHeader: `px-2 flex items-center justify-between font-semibold text-xl`,
+    arrowButtonDiv: `flex items-center justify-center -mt-4 -mb-4`,
+    arrowButton: `w-8 h-8 bg-[#191B1F] rounded-full text-blue-500 border-4 border-[#191B1F]`,
     transferPropContainer: `bg-[#20242A] my-3 rounded-lg p-6 text-3xl  border border-[#20242A] hover:border-[#41444F]  flex justify-between`,
     transferPropInput: `bg-transparent placeholder:text-[#B2B9D2] outline-none mb-6 w-full text-2xl`,
     currencySelector: `flex w-1/4`,
@@ -24,7 +27,7 @@ const Main = () => {
       <div className={style.content}>
         <div className={style.formHeader}>
           <div>
-            Send
+            Transfer
           </div>
         </div>
         <div className={style.transferPropContainer}>
@@ -36,8 +39,11 @@ const Main = () => {
             onChange={e => console.log(e)}
           />
           <div>
-          <Image src={eth} height={40} width={40} />
+            <Image src={eth} height={40} width={40} />
           </div>
+        </div>
+        <div className={style.arrowButtonDiv}>
+          <MdOutlineArrowCircleDown className={style.arrowButton} />
         </div>
         <div className={style.transferPropContainer}>
           <input
