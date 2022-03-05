@@ -2,6 +2,7 @@
 
 # dependencies
 cb_client/node_modules
+.next/
 /.pnp
 .pnp.js
 studio/node_modules

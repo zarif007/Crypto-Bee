@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Image from 'next/image'
 import logo from '../assets/logo.png'
 import eth from '../assets/eth.png'
 import ethCurrency from '../assets/ethCurrency.png'
 import { FaWallet, FaHistory } from "react-icons/fa";
 import { RiSendPlaneFill } from "react-icons/ri";
+import { TransactionContext } from '../context/TransactionContexst'
+
 
 const style = {
     wrapper: `p-4 w-screen flex justify-between items-center flex-wrap`,
@@ -22,7 +24,8 @@ const style = {
 }
 
 const Header = () => {
-    const [selectedNav, setSelectedNav] = useState('Transfer')
+    const [selectedNav, setSelectedNav] = useState('Transfer');
+    const { currentAccount, connectWallet } = useContext(TransactionContext)
 
     return (
         <div className={style.wrapper}>
@@ -39,7 +42,7 @@ const Header = () => {
               </div>
               <div 
                 className={`${style.navItem} ${selectedNav === 'History' && 
-                style.activeNavItem}`} 
+                style.activeNavItem} pr-1`} 
                 onClick={() => setSelectedNav('History')}>
                   <span className='hidden sm:inline pr-1'>History</span> <FaHistory className='w-4 h-4' />
               </div>
@@ -53,12 +56,17 @@ const Header = () => {
                 <p className='hidden sm:inline'>Etherium</p>
               </div>
             </div>
-
-            <div className={`${style.button} ${style.buttonPadding} w-full`}>
+            <div className={`${style.button} ${style.buttonPadding} w-full`}
+              onClick={connectWallet}>
               <div className={`${style.buttonAccent} ${style.buttonPadding}`}>
-                <p className='hidden sm:inline pr-1'>Connect Wallet</p> <FaWallet className='w-4 h-4' />
+                {
+                  !currentAccount ? <><p className='hidden sm:inline pr-1'>Connect Wallet</p> <FaWallet className='w-4 h-4' /></> : 
+                  <div>{currentAccount?.substring(0, 3)}...{currentAccount?.substring(currentAccount?.length-3, currentAccount?.length)}</div>
+                }
+                
               </div>
             </div>
+            
           </div>
         </div>
     )
