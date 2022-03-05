@@ -6,6 +6,7 @@ cb_client/node_modules
 /.pnp
 .pnp.js
 studio/node_modules
+smart_contracts/node_modules
 
 # testing
 /coverage

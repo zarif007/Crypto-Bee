@@ -12,7 +12,7 @@ const style = {
     wrapper: `p-4 w-screen flex justify-between items-center flex-wrap`,
     headerLogo: `flex w-1/4 items-center justify-start`,
     nav: `flex justify-between items-center`,
-    navItemsContainer: `flex bg-gray-900 rounded-2xl mx-auto justify-center`,
+    navItemsContainer: `mr-2 flex bg-gray-900 rounded-2xl mx-auto justify-center`,
     navItem: `px-4 py-2 m-1 flex items-center text-lg font-semibold text-[0.9rem] cursor-pointer rounded-2xl`,
     activeNavItem: `bg-[#20242A]`,
     buttonsContainer: `flex w-1/4 justify-end items-center`,
@@ -61,7 +61,7 @@ const Header = () => {
               <div className={`${style.buttonAccent} ${style.buttonPadding}`}>
                 {
                   !currentAccount ? <><p className='hidden sm:inline pr-1'>Connect Wallet</p> <FaWallet className='w-4 h-4' /></> : 
-                  <div>{currentAccount?.substring(0, 3)}...{currentAccount?.substring(currentAccount?.length-3, currentAccount?.length)}</div>
+                  <div>{currentAccount?.substring(0, 5)}.....{currentAccount?.substring(currentAccount?.length - 4, currentAccount?.length)}</div>
                 }
                 
               </div>
